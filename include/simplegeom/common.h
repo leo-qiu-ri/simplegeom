@@ -25,4 +25,10 @@ using Segment = bg::model::segment<Point>;
 
 enum class ProjectionMode { kSimple, kAccumulate };
 
+template <typename Point>
+inline void assign_segment(const Point &p1, const Point &p2, Segment<Point> &seg) {
+    seg.first = p1;
+    seg.second = p2;
+}
+
 }  // namespace simplegeom

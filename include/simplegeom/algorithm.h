@@ -169,8 +169,7 @@ std::pair<double, double> distance(const Point &point, const LineString<Point> &
 
     Segment<Point> seg;
     for (size_t i = 0; i < line.size() - 1; ++i) {
-        seg.first = line.at(i);
-        seg.second = line.at(i + 1);
+        assign_segment(line.at(i), line.at(i + 1), seg);
         // 如果线段与搜索框不相交则跳过
         if (!bg::intersects(seg, create_box(point, search_box_size))) {
             continue;
@@ -191,11 +190,9 @@ std::pair<double, double> distance(const Point &point, const LineString<Point> &
         }
     }
 
-    seg.first = line.at(index);
-    seg.second = line.at(index + 1);
+    assign_segment(line.at(index), line.at(index + 1), seg);
 
-    Point closest = closest_point(point, seg);
-    project_distance += distance(seg.first, closest);
+    project_distance += distance(seg.first, closest_point(point, seg));
 
     return std::make_pair(bg::distance(point, seg), project_distance);
 }
