@@ -21,7 +21,7 @@ namespace simplegeom {
  */
 template <typename Point>
 Box<Point> create_box(const Point &center_point, double edge_length) {
-    static const double kGeographicFactor = 1. / 2. / 1e5;
+    static constexpr double kGeographicFactor = 1. / 2. / 1e5;
 
     constexpr size_t dim = bg::dimension<Point>::value;  // 点的维度
     static_assert(dim == 2 || dim == 3, "Only support 2D or 3D point");
