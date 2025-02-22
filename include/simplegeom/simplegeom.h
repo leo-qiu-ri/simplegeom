@@ -12,6 +12,10 @@
 
 #pragma once
 
-#include "simplegeom/algorithm.h"
+#include "simplegeom/algorithm/closest_points.h"
+#include "simplegeom/algorithm/convert.h"
+#include "simplegeom/algorithm/distance.h"
+#include "simplegeom/algorithm/length.h"
+#include "simplegeom/algorithm/transform.h"
 #include "simplegeom/common.h"
 #include "simplegeom/io.h"

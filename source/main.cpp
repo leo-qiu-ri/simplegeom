@@ -4,9 +4,9 @@
 #include "simplegeom/simplegeom.h"
 
 int main() {
-    simplegeom::Point2 point(0.5, 0.5);
-    simplegeom::Point2 point2(2, 2);
-    simplegeom::LineString<simplegeom::Point2> line;
+    simplegeom::PointGeo2 point(0.5, 0.5);
+    simplegeom::PointGeo2 point2(2, 2);
+    simplegeom::LineString<simplegeom::PointGeo2> line;
     line.emplace_back(0, 0);
     line.emplace_back(1, 1);
     line.emplace_back(2, 2);
@@ -26,4 +26,7 @@ int main() {
                      .count()
               << "us." << std::endl;
     std::cout << simplegeom::wkt_str(point2) << std::endl;
+
+    double leng = simplegeom::length(line);
+    std::cout << leng << std::endl;
 }
